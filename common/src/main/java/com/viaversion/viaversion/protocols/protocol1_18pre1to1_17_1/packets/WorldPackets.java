@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.viaversion.viaversion.protocols.protocol1_18to1_17_1.packets;
+package com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.packets;
 
 import com.github.steveice10.opennbt.tag.builtin.CompoundTag;
 import com.github.steveice10.opennbt.tag.builtin.NumberTag;
@@ -34,10 +34,10 @@ import com.viaversion.viaversion.api.protocol.remapper.PacketRemapper;
 import com.viaversion.viaversion.api.type.Type;
 import com.viaversion.viaversion.protocols.protocol1_17_1to1_17.ClientboundPackets1_17_1;
 import com.viaversion.viaversion.protocols.protocol1_17to1_16_4.types.Chunk1_17Type;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.BlockEntityIds;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.Protocol1_18To1_17_1;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.storage.ChunkLightStorage;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.types.Chunk1_18Type;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.BlockEntityIds;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.Protocol1_18pre1To1_17_1;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.storage.ChunkLightStorage;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.types.Chunk1_18Type;
 import com.viaversion.viaversion.util.MathUtil;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ import java.util.List;
 
 public final class WorldPackets {
 
-    public static void register(final Protocol1_18To1_17_1 protocol) {
+    public static void register(final Protocol1_18pre1To1_17_1 protocol) {
         protocol.registerClientbound(ClientboundPackets1_17_1.BLOCK_ENTITY_DATA, new PacketRemapper() {
             @Override
             public void registerMap() {

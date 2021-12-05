@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.viaversion.viaversion.protocols.protocol1_18to1_17_1.data;
+package com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.data;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

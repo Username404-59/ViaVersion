@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.viaversion.viaversion.protocols.protocol1_18to1_17_1.storage;
+package com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.storage;
 
 import com.viaversion.viaversion.api.connection.StorableObject;
 import org.checkerframework.checker.nullness.qual.Nullable;

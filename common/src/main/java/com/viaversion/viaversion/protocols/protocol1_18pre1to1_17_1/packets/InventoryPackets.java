@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.viaversion.viaversion.protocols.protocol1_18to1_17_1.packets;
+package com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.packets;
 
 import com.viaversion.viaversion.api.data.ParticleMappings;
 import com.viaversion.viaversion.api.protocol.remapper.PacketRemapper;
@@ -23,12 +23,12 @@ import com.viaversion.viaversion.api.type.Type;
 import com.viaversion.viaversion.protocols.protocol1_16to1_15_2.data.RecipeRewriter1_16;
 import com.viaversion.viaversion.protocols.protocol1_17_1to1_17.ClientboundPackets1_17_1;
 import com.viaversion.viaversion.protocols.protocol1_17to1_16_4.ServerboundPackets1_17;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.Protocol1_18To1_17_1;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.Protocol1_18pre1To1_17_1;
 import com.viaversion.viaversion.rewriter.ItemRewriter;
 
-public final class InventoryPackets extends ItemRewriter<Protocol1_18To1_17_1> {
+public final class InventoryPackets extends ItemRewriter<Protocol1_18pre1To1_17_1> {
 
-    public InventoryPackets(Protocol1_18To1_17_1 protocol) {
+    public InventoryPackets(Protocol1_18pre1To1_17_1 protocol) {
         super(protocol);
     }
 

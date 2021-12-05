@@ -9,6 +9,11 @@ allprojects {
     group = "com.viaversion"
     version = property("projectVersion") as String // from gradle.properties
     description = "Allow newer clients to join older server versions."
+    tasks {
+        withType<JavaCompile>() {
+            options.release.set(16)
+        }
+    }
 }
 
 val platforms = setOf(

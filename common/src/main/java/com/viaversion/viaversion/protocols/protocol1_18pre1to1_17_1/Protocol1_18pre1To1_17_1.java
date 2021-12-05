@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.viaversion.viaversion.protocols.protocol1_18to1_17_1;
+package com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1;
 
 import com.viaversion.viaversion.api.connection.UserConnection;
 import com.viaversion.viaversion.api.minecraft.RegistryType;
@@ -28,24 +28,24 @@ import com.viaversion.viaversion.api.type.types.version.Types1_18;
 import com.viaversion.viaversion.data.entity.EntityTrackerBase;
 import com.viaversion.viaversion.protocols.protocol1_17_1to1_17.ClientboundPackets1_17_1;
 import com.viaversion.viaversion.protocols.protocol1_17to1_16_4.ServerboundPackets1_17;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.data.MappingData;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.packets.EntityPackets;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.packets.InventoryPackets;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.packets.WorldPackets;
-import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.storage.ChunkLightStorage;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.data.MappingData;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.packets.EntityPackets;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.packets.InventoryPackets;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.packets.WorldPackets;
+import com.viaversion.viaversion.protocols.protocol1_18pre1to1_17_1.storage.ChunkLightStorage;
 import com.viaversion.viaversion.rewriter.EntityRewriter;
 import com.viaversion.viaversion.rewriter.ItemRewriter;
 import com.viaversion.viaversion.rewriter.SoundRewriter;
 import com.viaversion.viaversion.rewriter.StatisticsRewriter;
 import com.viaversion.viaversion.rewriter.TagRewriter;
 
-public final class Protocol1_18To1_17_1 extends AbstractProtocol<ClientboundPackets1_17_1, ClientboundPackets1_18, ServerboundPackets1_17, ServerboundPackets1_17> {
+public final class Protocol1_18pre1To1_17_1 extends AbstractProtocol<ClientboundPackets1_17_1, ClientboundPackets1_18, ServerboundPackets1_17, ServerboundPackets1_17> {
 
     public static final MappingData MAPPINGS = new MappingData();
-    private final EntityRewriter<Protocol1_18To1_17_1> entityRewriter = new EntityPackets(this);
-    private final ItemRewriter<Protocol1_18To1_17_1> itemRewriter = new InventoryPackets(this);
+    private final EntityRewriter<Protocol1_18pre1To1_17_1> entityRewriter = new EntityPackets(this);
+    private final ItemRewriter<Protocol1_18pre1To1_17_1> itemRewriter = new InventoryPackets(this);
 
-    public Protocol1_18To1_17_1() {
+    public Protocol1_18pre1To1_17_1() {
         super(ClientboundPackets1_17_1.class, ClientboundPackets1_18.class, ServerboundPackets1_17.class, ServerboundPackets1_17.class);
     }
 
@@ -108,12 +108,12 @@ public final class Protocol1_18To1_17_1 extends AbstractProtocol<ClientboundPack
     }
 
     @Override
-    public EntityRewriter<Protocol1_18To1_17_1> getEntityRewriter() {
+    public EntityRewriter<Protocol1_18pre1To1_17_1> getEntityRewriter() {
         return entityRewriter;
     }
 
     @Override
-    public ItemRewriter<Protocol1_18To1_17_1> getItemRewriter() {
+    public ItemRewriter<Protocol1_18pre1To1_17_1> getItemRewriter() {
         return itemRewriter;
     }
 }
