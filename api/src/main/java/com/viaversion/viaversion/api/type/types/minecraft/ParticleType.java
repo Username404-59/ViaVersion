@@ -117,6 +117,23 @@ public class ParticleType extends Type<Particle> {
             }
             particle.add(Type.VAR_INT, Type.VAR_INT.readPrimitive(buf)); // Arrival in ticks
         };
+        public static final ParticleReader VIBRATION1_19 = (buf, particle) -> {
+            String resourceLocation = Type.STRING.read(buf);
+            particle.add(Type.STRING, resourceLocation);
+            if (resourceLocation.startsWith("minecraft:")) {
+                resourceLocation = resourceLocation.substring(10);
+            }
+
+            if (resourceLocation.equals("block")) {
+                particle.add(Type.POSITION1_14, Type.POSITION1_14.read(buf)); // Target block pos
+            } else if (resourceLocation.equals("entity")) {
+                particle.add(Type.VAR_INT, Type.VAR_INT.readPrimitive(buf)); // Target entity
+                particle.add(Type.FLOAT, Type.FLOAT.readPrimitive(buf)); // Y offset
+            } else {
+                Via.getPlatform().getLogger().warning("Unknown vibration path position source type: " + resourceLocation);
+            }
+            particle.add(Type.VAR_INT, Type.VAR_INT.readPrimitive(buf)); // Arrival in ticks
+        };
         public static final ParticleReader SCULK_CHARGE = (buf, particle) -> {
             particle.add(Type.FLOAT, Type.FLOAT.readPrimitive(buf)); // Roll
         };

@@ -22,6 +22,7 @@ import com.viaversion.viaversion.api.minecraft.entities.Entity1_19Types;
 import com.viaversion.viaversion.api.minecraft.entities.EntityType;
 import com.viaversion.viaversion.api.protocol.remapper.PacketRemapper;
 import com.viaversion.viaversion.api.type.Type;
+import com.viaversion.viaversion.api.type.types.Particle;
 import com.viaversion.viaversion.api.type.types.version.Types1_18;
 import com.viaversion.viaversion.api.type.types.version.Types1_19;
 import com.viaversion.viaversion.protocols.protocol1_18to1_17_1.ClientboundPackets1_18;
@@ -86,9 +87,26 @@ public final class EntityPackets extends EntityRewriter<Protocol1_19To1_18_2> {
 
     @Override
     protected void registerRewrites() {
-        filter().handler((event, meta) -> meta.setMetaType(Types1_19.META_TYPES.byId(meta.metaType().typeId())));
+        filter().handler((event, meta) -> {
+            meta.setMetaType(Types1_19.META_TYPES.byId(meta.metaType().typeId()));
+            if (meta.metaType() == Types1_19.META_TYPES.particleType) {
+                final Particle particle = (Particle) meta.getValue();
+                if (particle.getId() == protocol.getMappingData().getParticleMappings().id("vibration")) {
+                    particle.getArguments().remove(0);
 
-        registerMetaTypeHandler(Types1_19.META_TYPES.itemType, Types1_19.META_TYPES.blockStateType, Types1_19.META_TYPES.particleType);
+                    String resourceLocation = particle.getArguments().get(0).get();
+                    if (resourceLocation.startsWith("minecraft:")) {
+                        resourceLocation = resourceLocation.substring(10);
+                    }
+                    if (resourceLocation.equals("entity")) {
+                        particle.getArguments().add(2, new Particle.ParticleData(Type.FLOAT, 0F));
+                    }
+                }
+                rewriteParticle(particle);
+            }
+        });
+
+        registerMetaTypeHandler(Types1_19.META_TYPES.itemType, Types1_19.META_TYPES.blockStateType, null);
 
         filter().filterFamily(Entity1_17Types.MINECART_ABSTRACT).index(11).handler((event, meta) -> {
             // Convert to new block id
